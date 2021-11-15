@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BrandLogo } from '../../logo/brandLogo';
-import { Marginer } from '../../marginer/index'
-import { Button } from '../../button';
+import { BrandLogo } from '../../components/logo/brandLogo';
+import { Marginer } from '../../components/marginer/index'
+import { Button } from '../../components/button';
 
-import TopSectionBacgroundImg from '../../../images/landing-page.jpg';
-import TheBestSpecialistImg from '../../../images/Work.png'
+import TopSectionBacgroundImg from '../../images/landing-page.jpg';
+import TheBestSpecialistImg from '../../images/Work.png'
 
 
 

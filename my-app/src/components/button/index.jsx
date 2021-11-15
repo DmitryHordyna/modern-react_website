@@ -11,7 +11,7 @@ const ButtonWrapper = styled.div`
     border-radius:3px;
     background-color:#2A9D8F;
     transition:all 200ms ease-in-out;
-    cursor:pointer;
+    cursor: pointer;
     
     &:hover{
     background-color:#248b7f;
@@ -22,6 +22,6 @@ const ButtonWrapper = styled.div`
 `;
 
 export function Button(props) {
-    const {size}=props
-    return <ButtonWrapper size={size}>{props.children }</ButtonWrapper>
+    const { size } = props;
+    return (<ButtonWrapper size={size} className={props.className}>{props.children}</ButtonWrapper>)
 }
