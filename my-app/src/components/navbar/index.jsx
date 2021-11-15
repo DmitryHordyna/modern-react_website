@@ -25,12 +25,12 @@ const AchoreLink = styled.a`
   cursor:pointer;
   text-decoration:none;
   outline:none;
-  transition:a;all 200ms ease-in-out;
+  transition:all 200ms ease-in-out;
 
   &:hover{
     filter:contrast(0.6);
   }
-`
+`;
 
 const Seperator = styled.div`
   min-height:43%;
