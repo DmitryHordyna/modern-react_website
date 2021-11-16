@@ -25,9 +25,9 @@ const ContentContainer = styled.div`
 `
 export function HomePage(props) {
     return (
-        <PageContainer>
+        <PageContainer >
             <TopSection>
-                <NavBar />
+                <NavBar useTransparent/>
             </TopSection>
             <InnerPageContainer>
                 <Marginer direction="vertical" margin="2em" />

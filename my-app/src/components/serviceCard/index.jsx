@@ -92,7 +92,7 @@ export function ServicedCard(props) {
     const { thumbnailUrl, specialist, id, title, rate, rating } = props;
 
     return (
-        <CardContainer>
+        <CardContainer key={id}>
             <TopContainer>
                 < ServiceThumbnail>
                     <img src={thumbnailUrl} alt={title} />
