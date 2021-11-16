@@ -5,7 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import { Button } from '../button';
 import { BrandLogo } from '../logo/brandLogo';
 import { Marginer } from '../marginer/index'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { deviceSize } from "../responsive";
 
 
@@ -27,7 +27,7 @@ const AccessibilityContainer = styled.div`
   align-items: center;
 `;
 
-const AnchorLink = styled(Link)`
+const AnchorLink = styled.a`
   font-size:12px;
   color:#fff;
   cursor:pointer;
@@ -61,11 +61,12 @@ export function NavBar(props) {
         {!isMobile && <Marginer direction="horizontal" margin={10} />}
         {!isMobile && <Seperator />}
         <Marginer direction="horizontal" margin={10} />
-        <Link to="/customer/access/signup">
+        <NavLink to="/customer/access/signup">
           <Button size={11}>Register</Button>
-        </Link>
+        </NavLink>
         <Marginer direction="horizontal" margin={8} />
-        <AnchorLink to="/customer/access/signin">Login</AnchorLink>
+        <NavLink to="/customer/access/signin">    <AnchorLink >Login</AnchorLink></NavLink>
+    
       </AccessibilityContainer>
     </NavbarContainer>
   );
