@@ -19,8 +19,9 @@ const BoxContainer = styled.div`
 `;
 
 const TopContainer = styled.div`
+  
   width: 100%;
-  height: 255px;
+  height: 205px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -30,6 +31,7 @@ const TopContainer = styled.div`
 `;
 
 const BackDrop = styled(motion.div)`
+
   position: absolute;
   width: 160%;
   height: 550px;
@@ -51,6 +53,7 @@ const BackDrop = styled(motion.div)`
 `;
 
 const HeaderContainer = styled.div`
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -76,6 +79,7 @@ const SmallText = styled.h5`
 `;
 
 const InnerContainer = styled.div`
+ box-sizing: border-box;
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -11,8 +11,8 @@ function App() {
         <Routes>
           <Route path="/" exact element={<HomePage />} />
           <Route
+            path="/customer/access/:action"
             exact
-            path="/custumer/access"
             element={<CustomerAccesPage />}
           />
         </Routes>

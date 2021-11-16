@@ -1,10 +1,16 @@
 import React from 'react';
 import styled from 'styled-components'
+import { useMediaQuery } from "react-responsive";
+
 import { Button } from '../button';
 import { BrandLogo } from '../logo/brandLogo';
 import { Marginer } from '../marginer/index'
+import { Link } from "react-router-dom";
+import { deviceSize } from "../responsive";
 
-const NavBarContainer = styled.div`
+
+
+const NavbarContainer = styled.div`
   width: 100;
   height: 65px;
   display: flex;
@@ -21,7 +27,7 @@ const AccessibilityContainer = styled.div`
   align-items: center;
 `;
 
-const AchoreLink = styled.a`
+const AnchorLink = styled(Link)`
   font-size:12px;
   color:#fff;
   cursor:pointer;
@@ -40,21 +46,27 @@ const Seperator = styled.div`
   background-color:#fff;
 `
 
+  
 export function NavBar(props) {
 
   const {useTransparent}=props
 
+  const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+
   return (
-    <NavBarContainer useTransparent={useTransparent}>
-       <BrandLogo/>
+    <NavbarContainer useTransparent={useTransparent}>
+      <BrandLogo />
       <AccessibilityContainer>
-        < AchoreLink>Specialists Portal</ AchoreLink>
+        {!isMobile && <AnchorLink>Specialists Portal</AnchorLink>}
+        {!isMobile && <Marginer direction="horizontal" margin={10} />}
+        {!isMobile && <Seperator />}
         <Marginer direction="horizontal" margin={10} />
-        <Seperator />
-           <Marginer direction="horizontal" margin={10} />
-        <Button size={10}>Register</Button>
-        <Marginer direction="horizontal" margin={8}/>
-        < AchoreLink>Login</ AchoreLink>
-      </AccessibilityContainer>  
-  </NavBarContainer>)
+        <Link to="/customer/access/signup">
+          <Button size={11}>Register</Button>
+        </Link>
+        <Marginer direction="horizontal" margin={8} />
+        <AnchorLink to="/customer/access/signin">Login</AnchorLink>
+      </AccessibilityContainer>
+    </NavbarContainer>
+  );
 }
