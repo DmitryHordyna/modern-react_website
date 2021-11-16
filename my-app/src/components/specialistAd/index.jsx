@@ -1,5 +1,9 @@
 import React from "react";
-import styled from "styled-components"; 
+import styled from "styled-components";
+import { Marginer } from '../../components/marginer/index'
+import { BrandLogo } from "../logo/brandLogo";
+import FarmingImg from '../../images/farming.png'
+import { Button } from "../button";
 
 const SpecialistAdContainer = styled.div`
     width: 100%;
@@ -22,14 +26,17 @@ const ContentContainer = styled.div`
 const SloganContainer = styled.div` 
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+
 `
 
-const Slogan=styled.h3`
+const Slogan = styled.h3`
     margin:0;
-    font-size:20px;
+    font-size:24px;
     color: #fff;
     font-weight: 700;
-`
+    line-height: 1.3;
+`;
 
 const StandoutImage=styled.div`
     width: 35em;
@@ -45,10 +52,18 @@ export function SpecialistAd(props) {
     return (
         <SpecialistAdContainer>
             <ContentContainer>
-                
-                <SloganContainer><Slogan></Slogan></SloganContainer>
-                <StandoutImage></StandoutImage>
-</ContentContainer>
+                <SloganContainer>
+                    <Slogan><BrandLogo logoSize={40} textSize={35} /></Slogan>
+                    < Marginer direction="vertical" margin="1em" />
+                    <Slogan>You're Specialist, and you </Slogan>
+                    <Slogan>have an outstanding </Slogan>
+                    <Slogan>Service to offer?</Slogan>
+                    < Marginer direction="vertical" margin={10} />
+                   <Button size={15} >Join as Specialist</Button >
+                </SloganContainer>
+            
+                <StandoutImage> <img src={FarmingImg} alt="join us specialist"/></StandoutImage>
+            </ContentContainer>
         </SpecialistAdContainer>
-    )
+    );
 };
