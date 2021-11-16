@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useMediaQuery } from "react-responsive";
 import { BrandLogo } from '../../components/logo/brandLogo';
 import { Marginer } from '../../components/marginer/index'
 import { Button } from '../../components/button';
+import { deviceSize } from "../../components/responsive";
 
 import TopSectionBacgroundImg from '../../images/landing-page.jpg';
 import TheBestSpecialistImg from '../../images/Work.png'
@@ -15,6 +17,10 @@ const TopSectionContainer = styled.div`
     background:url(${TopSectionBacgroundImg});
     background-position:0px -100px;
     background-size:cover;
+      @media screen and (max-width: ${deviceSize.mobile}px) {
+    height: 700px;
+    background-position: 0px 0px;
+  }
 `;
 
 const BackgroundFilter = styled.div`
@@ -33,7 +39,7 @@ const TopSectionInnerContainer = styled.div`
     justify-content:space-evenly;
 `
 
-const StandoutImg = styled.div`
+const StandoutImage = styled.div`
     width:44em;
     height:34em;
 
@@ -47,6 +53,9 @@ const LogoContainer = styled.div`
     display:flex;
     flex-direction:column;
     align-items:flex-start;
+     @media screen and (max-width: ${deviceSize.mobile}px) {
+    align-items: center;
+  }
 `
 const SloganText = styled.h3`
     margin:0;
@@ -54,30 +63,38 @@ const SloganText = styled.h3`
     color:#fff;
     font-weight:500;
     font-size:35px;
+      @media screen and (max-width: ${deviceSize.mobile}px) {
+    font-size: 24px;
+  }
 `
 
 
 export function TopSection(props) {
     const { children } = props;
-
+    const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
     return (
-
-    <TopSectionContainer>
+        <TopSectionContainer>
             <BackgroundFilter>
                 {children}
-            <TopSectionInnerContainer>
-                <LogoContainer>
-                        <BrandLogo logoSize={65} textSize={55} />
-                        <Marginer direction="vertical" margin={10}/>
+                <TopSectionInnerContainer>
+                    <LogoContainer>
+                        <BrandLogo
+                            logoSize={isMobile ? 40 : 65}
+                            textSize={isMobile ? 35 : 55}
+                        />
+                        <Marginer direction="vertical" margin={8} />
                         <SloganText>Find the right specialist</SloganText>
                         <SloganText>For the job</SloganText>
-                        <Marginer direction="vertical" margin={10} />
-                        <Button>  Join Now </Button>
-                </LogoContainer>
-                <StandoutImg>
-                    <img src={TheBestSpecialistImg} alt="the best worker"/>
-                </StandoutImg>
-           </TopSectionInnerContainer >
-        </BackgroundFilter >
-    </TopSectionContainer>)
+                        <Marginer direction="vertical" margin={15} />
+                        <Button>Join Now</Button>
+                    </LogoContainer>
+                    {!isMobile && (
+                        <StandoutImage>
+                            <img src={TheBestSpecialistImg} alt="best in the field" />
+                        </StandoutImage>
+                    )}
+                </TopSectionInnerContainer>
+            </BackgroundFilter>
+        </TopSectionContainer>
+    );
 }

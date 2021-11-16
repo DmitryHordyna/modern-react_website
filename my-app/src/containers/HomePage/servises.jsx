@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { ServicedCard } from "../../components/serviceCard";
 import Axious from 'axios'
 import { Button } from "../../components/button";
-
+import { deviceSize } from "../../components/responsive";
 
 
 const ServicesContainer = styled.div`
@@ -15,6 +15,9 @@ const ServicesContainer = styled.div`
 const Title = styled.h1`
     font-weight:900;
     color: #000;
+      @media screen and (max-width: ${deviceSize.mobile}px) {
+    font-size: 25px;
+  }
 `;
 
 const ServicesWreper = styled.div`
@@ -46,7 +49,7 @@ const ViewMoreButton = styled(Button)`
 `
 
 
-const wait = (num) => new Promise((rs) => setTimeout(rs, num));
+// const wait = (num) => new Promise((rs) => setTimeout(rs, num));
 
 export function Services(props) {
 
@@ -60,7 +63,7 @@ export function Services(props) {
         const response = await Axious.get("http://localhost:9000/services").catch((err) => {
             console.log('Error', err)
         })
-        await wait(2000)
+        // await wait(2000)
         if (response) {
             setServices(response.data)
         }
